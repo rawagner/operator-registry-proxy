@@ -1,0 +1,41 @@
+schema: olm.package
+name: nginx
+defaultChannel: mainline
+properties:
+  - type: flightctl.meta
+    value:
+      type: app
+---
+schema: olm.channel
+package: nginx
+name: mainline
+entries:
+  - name: nginx.v1.27.5
+    replaces: nginx.v1.27.4
+  - name: nginx.v1.27.4
+---
+schema: olm.bundle
+package: nginx
+name: nginx.v1.27.5
+image: docker.io/library/nginx:1.27.5
+properties:
+  - type: flightctl.meta
+    value:
+      type: app
+  - type: olm.package
+    value:
+      packageName: nginx
+      version: "1.27.5"
+---
+schema: olm.bundle
+package: nginx
+name: nginx.v1.27.4
+image: docker.io/library/nginx:1.27.4
+properties:
+  - type: flightctl.meta
+    value:
+      type: app
+  - type: olm.package
+    value:
+      packageName: nginx
+      version: "1.27.4"
