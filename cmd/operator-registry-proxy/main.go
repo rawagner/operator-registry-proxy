@@ -32,9 +32,9 @@ func main() {
 			return
 		}
 
-		var packages []map[string]any
+		var packages []*api.PackageName
 		for {
-			pkg, err := resp.Recv()
+			p, err := resp.Recv()
 			if err == io.EOF {
 				break
 			}
@@ -43,10 +43,20 @@ func main() {
 				return
 			}
 
-			packages = append(packages, map[string]any{"name": pkg.Name})
+			packages = append(packages, p)
 		}
 
 		c.JSON(http.StatusOK, packages)
+	})
+
+	r.GET("/package/:package", func(c *gin.Context) {
+		resp, err := client.GetPackage(c.Request.Context(), &api.GetPackageRequest{Name: c.Params.ByName("package")})
+		if err != nil {
+			c.String(http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		c.JSON(http.StatusOK, resp)
 	})
 
 	r.Run()
