@@ -1,0 +1,71 @@
+schema: olm.package
+name: fedora
+defaultChannel: stable
+---
+schema: olm.channel
+package: fedora
+name: stable
+entries:
+  - name: fedora.v42
+    replaces: fedora.v41
+  - name: fedora.v41
+    replaces: fedora.v40
+  - name: fedora.v40
+---
+schema: olm.channel
+package: fedora
+name: rawhide
+entries:
+  - name: fedora.rawhide
+---
+schema: olm.bundle
+package: fedora
+name: fedora.v40
+image: quay.io/fedora/fedora-bootc:40
+properties:
+  - type: flightctl.type
+    value:
+      type: os
+  - type: olm.package
+    value:
+      packageName: fedora
+      version: "40.0.0"
+---
+schema: olm.bundle
+package: fedora
+name: fedora.v41
+image: quay.io/fedora/fedora-bootc:41
+properties:
+  - type: flightctl.type
+    value:
+      type: os
+  - type: olm.package
+    value:
+      packageName: fedora
+      version: "41.0.0"
+---
+schema: olm.bundle
+package: fedora
+name: fedora.v42
+image: quay.io/fedora/fedora-bootc:42
+properties:
+  - type: flightctl.type
+    value:
+      type: os
+  - type: olm.package
+    value:
+      packageName: fedora
+      version: "42.0.0"
+---
+schema: olm.bundle
+package: fedora
+name: fedora.rawhide
+image: quay.io/fedora/fedora-bootc:rawhide
+properties:
+  - type: flightctl.type
+    value:
+      type: os
+  - type: olm.package
+    value:
+      packageName: fedora
+      version: "43.0.0"
