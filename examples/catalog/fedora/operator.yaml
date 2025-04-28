@@ -23,7 +23,7 @@ package: fedora
 name: fedora.v40
 image: quay.io/fedora/fedora-bootc:40
 properties:
-  - type: flightctl.type
+  - type: flightctl.meta
     value:
       type: os
   - type: olm.package
@@ -36,7 +36,7 @@ package: fedora
 name: fedora.v41
 image: quay.io/fedora/fedora-bootc:41
 properties:
-  - type: flightctl.type
+  - type: flightctl.meta
     value:
       type: os
   - type: olm.package
@@ -49,7 +49,7 @@ package: fedora
 name: fedora.v42
 image: quay.io/fedora/fedora-bootc:42
 properties:
-  - type: flightctl.type
+  - type: flightctl.meta
     value:
       type: os
   - type: olm.package
@@ -62,7 +62,7 @@ package: fedora
 name: fedora.rawhide
 image: quay.io/fedora/fedora-bootc:rawhide
 properties:
-  - type: flightctl.type
+  - type: flightctl.meta
     value:
       type: os
   - type: olm.package
