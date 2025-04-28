@@ -7,7 +7,6 @@ import (
 	"os"
 
 	"github.com/gin-gonic/gin"
-	"github.com/operator-framework/operator-registry/pkg/api"
 	"github.com/operator-framework/operator-registry/pkg/cache"
 )
 
@@ -29,45 +28,37 @@ func main() {
 
 	cache.LoadOrRebuild(context.Background(), reg, os.DirFS(*catalogDir))
 
+	backend := reg.Backend()
+
 	r := gin.Default()
 
 	r.GET("/package", func(c *gin.Context) {
-		resp, err := reg.ListPackages(c.Request.Context())
+		index, err := backend.GetPackageIndex(c.Request.Context())
 		if err != nil {
 			c.String(http.StatusInternalServerError, err.Error())
 			return
 		}
 
-		var packages []*api.PackageName
-		for _, name := range resp {
-			packages = append(packages, &api.PackageName{Name: name})
+		var packages []any
+		for _, pkg := range index {
+			packages = append(packages, pkg)
 		}
 
 		c.JSON(http.StatusOK, packages)
 	})
 
-	r.GET("/package/:package", func(c *gin.Context) {
-		resp, err := reg.GetPackage(c.Request.Context(), c.Params.ByName("package"))
+	r.GET("/bundle/:package/:channel/:name", func(c *gin.Context) {
+		bundle, err := backend.GetBundle(c.Request.Context(), cache.BundleKey{
+			PackageName: c.Params.ByName("package"),
+			ChannelName: c.Params.ByName("channel"),
+			Name:        c.Params.ByName("name"),
+		})
 		if err != nil {
 			c.String(http.StatusInternalServerError, err.Error())
 			return
 		}
 
-		c.JSON(http.StatusOK, resp)
-	})
-
-	r.GET("/bundle/:package/:channel/:csv", func(c *gin.Context) {
-		resp, err := reg.GetBundle(c.Request.Context(),
-			c.Params.ByName("package"),
-			c.Params.ByName("channel"),
-			c.Params.ByName("csv"),
-		)
-		if err != nil {
-			c.String(http.StatusInternalServerError, err.Error())
-			return
-		}
-
-		c.JSON(http.StatusOK, resp)
+		c.JSON(http.StatusOK, bundle)
 	})
 
 	r.Run()

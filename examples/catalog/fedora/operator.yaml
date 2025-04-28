@@ -1,6 +1,10 @@
 schema: olm.package
 name: fedora
 defaultChannel: stable
+properties:
+  - type: flightctl.meta
+    value:
+      type: os
 ---
 schema: olm.channel
 package: fedora
