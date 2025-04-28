@@ -59,5 +59,19 @@ func main() {
 		c.JSON(http.StatusOK, resp)
 	})
 
+	r.GET("/bundle/:package/:channel/:csv", func(c *gin.Context) {
+		resp, err := client.GetBundle(c.Request.Context(), &api.GetBundleRequest{
+			PkgName:     c.Params.ByName("package"),
+			ChannelName: c.Params.ByName("channel"),
+			CsvName:     c.Params.ByName("csv"),
+		})
+		if err != nil {
+			c.String(http.StatusInternalServerError, err.Error())
+			return
+		}
+
+		c.JSON(http.StatusOK, resp)
+	})
+
 	r.Run()
 }
