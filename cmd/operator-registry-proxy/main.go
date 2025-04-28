@@ -1,56 +1,53 @@
 package main
 
 import (
+	"context"
 	"flag"
-	"io"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/operator-framework/operator-registry/pkg/api"
-	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials/insecure"
+	"github.com/operator-framework/operator-registry/pkg/cache"
 )
 
-var upstream = flag.String("upstream", "", "upstream grpc address")
+var catalogDir = flag.String("catalog-dir", "", "catalog directory")
 
 func main() {
 	flag.Parse()
 
-	conn, err := grpc.NewClient(*upstream, grpc.WithTransportCredentials(insecure.NewCredentials()))
+	tempDir, err := os.MkdirTemp("", "operator-registry-proxy-")
+	if err != nil {
+		panic(err)
+	}
+	defer os.RemoveAll(tempDir)
+
+	reg, err := cache.New(tempDir)
 	if err != nil {
 		panic(err)
 	}
 
-	client := api.NewRegistryClient(conn)
+	cache.LoadOrRebuild(context.Background(), reg, os.DirFS(*catalogDir))
 
 	r := gin.Default()
 
 	r.GET("/package", func(c *gin.Context) {
-		resp, err := client.ListPackages(c.Request.Context(), &api.ListPackageRequest{})
+		resp, err := reg.ListPackages(c.Request.Context())
 		if err != nil {
 			c.String(http.StatusInternalServerError, err.Error())
 			return
 		}
 
 		var packages []*api.PackageName
-		for {
-			p, err := resp.Recv()
-			if err == io.EOF {
-				break
-			}
-			if err != nil {
-				c.String(http.StatusInternalServerError, err.Error())
-				return
-			}
-
-			packages = append(packages, p)
+		for _, name := range resp {
+			packages = append(packages, &api.PackageName{Name: name})
 		}
 
 		c.JSON(http.StatusOK, packages)
 	})
 
 	r.GET("/package/:package", func(c *gin.Context) {
-		resp, err := client.GetPackage(c.Request.Context(), &api.GetPackageRequest{Name: c.Params.ByName("package")})
+		resp, err := reg.GetPackage(c.Request.Context(), c.Params.ByName("package"))
 		if err != nil {
 			c.String(http.StatusInternalServerError, err.Error())
 			return
@@ -60,11 +57,11 @@ func main() {
 	})
 
 	r.GET("/bundle/:package/:channel/:csv", func(c *gin.Context) {
-		resp, err := client.GetBundle(c.Request.Context(), &api.GetBundleRequest{
-			PkgName:     c.Params.ByName("package"),
-			ChannelName: c.Params.ByName("channel"),
-			CsvName:     c.Params.ByName("csv"),
-		})
+		resp, err := reg.GetBundle(c.Request.Context(),
+			c.Params.ByName("package"),
+			c.Params.ByName("channel"),
+			c.Params.ByName("csv"),
+		)
 		if err != nil {
 			c.String(http.StatusInternalServerError, err.Error())
 			return
