@@ -55,4 +55,8 @@ properties:
           value:
             packageName: gemma
             version: ">=1.0.0"
+        - type: olm.package
+          value:
+            packageName: mistral
+            version: ">=1.0.0"
 
