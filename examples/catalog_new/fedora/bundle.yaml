@@ -1,0 +1,83 @@
+schema: olm.package
+name: fedora
+defaultChannel: stable
+description: |-
+  Fedora is a modern, open-source Linux distribution known for its focus on leading-edge software and its close ties to the Red Hat ecosystem. It serves as a testing ground for new technologies that often make their way into Red Hat Enterprise Linux (RHEL).
+icon:
+  base64data: PHN2ZyB2aWV3Qm94PSIwIDAgMjU2IDI1NiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCIgZmlsbD0iIzAwMDAwMCI+PGcgaWQ9IlNWR1JlcG9fYmdDYXJyaWVyIiBzdHJva2Utd2lkdGg9IjAiPjwvZz48ZyBpZD0iU1ZHUmVwb190cmFjZXJDYXJyaWVyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjwvZz48ZyBpZD0iU1ZHUmVwb19pY29uQ2FycmllciI+IDxnPiA8cGF0aCBkPSJNMjU2LDEyOC4wMDQgQzI1Niw1Ny4zMSAxOTguNjkxLDAgMTI3Ljk5OCwwIEM1Ny4zMzYsMCAwLjA1LDU3LjI2MiAwLDEyNy45MTQgTDAsMjI2Ljk2OCBDMC4wMzgsMjQzLjAxIDEzLjA0OSwyNTUuOTk3IDI5LjEwMSwyNTUuOTk3IEwxMjguMDUsMjU1Ljk5NyBDMTk4LjcyLDI1NS45NjkgMjU2LDE5OC42NzkgMjU2LDEyOC4wMDQiIGZpbGw9IiMyOTQxNzIiPiA8L3BhdGg+IDxwYXRoIGQ9Ik0xNjUuNTgsMzAuMzA3IEMxMzIuNDcxLDMwLjMwNyAxMDUuNTM1LDU3LjI0MiAxMDUuNTM1LDkwLjM1MiBMMTA1LjUzNSwxMjIuMjIyIEw3My43OTcsMTIyLjIyMiBDNDAuNjg4LDEyMi4yMjIgMTMuNzUyLDE0OS4xNTkgMTMuNzUyLDE4Mi4yNjggQzEzLjc1MiwyMTUuMzc2IDQwLjY4OCwyNDIuMzEzIDczLjc5NywyNDIuMzEzIEMxMDYuOTA2LDI0Mi4zMTMgMTMzLjg0MiwyMTUuMzc2IDEzMy44NDIsMTgyLjI2OCBMMTMzLjg0MiwxNTAuMzk3IEwxNjUuNTgsMTUwLjM5NyBDMTk4LjY4OSwxNTAuMzk3IDIyNS42MjYsMTIzLjQ2MSAyMjUuNjI2LDkwLjM1MiBDMjI1LjYyNiw1Ny4yNDIgMTk4LjY4OSwzMC4zMDcgMTY1LjU4LDMwLjMwNyBMMTY1LjU4LDMwLjMwNyBaIE0xMDUuNzU3LDE4Mi4yNjggQzEwNS43NTcsMTk5Ljg5IDkxLjQyLDIxNC4yMjcgNzMuNzk3LDIxNC4yMjcgQzU2LjE3NCwyMTQuMjI3IDQxLjgzNywxOTkuODkgNDEuODM3LDE4Mi4yNjggQzQxLjgzNywxNjQuNjQ1IDU2LjE3NCwxNTAuMzA4IDczLjc5NywxNTAuMzA4IEwxMDUuNTM1LDE1MC4zMDggTDEwNS41MzUsMTUwLjM5NyBMMTA1Ljc1NywxNTAuMzk3IEwxMDUuNzU3LDE4Mi4yNjggTDEwNS43NTcsMTgyLjI2OCBaIE0xNjUuNTgsMTIyLjMxMiBMMTMzLjg0MiwxMjIuMzEyIEwxMzMuODQyLDEyMi4yMjIgTDEzMy42MjEsMTIyLjIyMiBMMTMzLjYyMSw5MC4zNTIgQzEzMy42MjEsNzIuNzI5IDE0Ny45NTgsNTguMzkyIDE2NS41OCw1OC4zOTIgQzE4My4yMDIsNTguMzkyIDE5Ny41NCw3Mi43MjkgMTk3LjU0LDkwLjM1MiBDMTk3LjU0LDEwNy45NzUgMTgzLjIwMiwxMjIuMzEyIDE2NS41OCwxMjIuMzEyIEwxNjUuNTgsMTIyLjMxMiBaIiBmaWxsPSIjM0M2RUI0Ij4gPC9wYXRoPiA8cGF0aCBkPSJNMTc4Ljg1MSwzMi4xMjggQzE3NC4xOTEsMzAuOTEgMTcwLjYxMywzMC4zNDIgMTY1LjU4LDMwLjM0MiBDMTMyLjQwMywzMC4zNDIgMTA1LjUwNSw1Ny4yNDEgMTA1LjUwNSw5MC40MTYgTDEwNS41MDUsMTIyLjI1OCBMODAuMzQ1LDEyMi4yNTggQzcyLjUsMTIyLjI1OCA2Ni4xNiwxMjguNDIzIDY2LjE2NSwxMzYuMjU0IEM2Ni4xNjUsMTQ0LjAzNiA3Mi40MzUsMTUwLjIyNyA4MC4xOTcsMTUwLjIyNyBMMTAxLjAyOCwxNTAuMjMxIEMxMDMuNTAxLDE1MC4yMzEgMTA1LjUwNywxNTIuMjMxIDEwNS41MDcsMTU0LjcgTDEwNS41MDcsMTgyLjI1MyBDMTA1LjQ3NiwxOTkuNzQ0IDkxLjI4OCwyMTMuOTEyIDczLjc5NywyMTMuOTEyIEM2Ny44NzIsMjEzLjkxMiA2Ni40MDUsMjEzLjEzNiA2Mi4zNiwyMTMuMTM2IEM1My44NjMsMjEzLjEzNiA0OC4xNzgsMjE4LjgzMiA0OC4xNzgsMjI2LjY2NCBDNDguMTgsMjMzLjE0MyA1My43MzIsMjM4LjcxMyA2MC41MjYsMjQwLjQ5MSBDNjUuMTg2LDI0MS43MDkgNjguNzY0LDI0Mi4yNzggNzMuNzk3LDI0Mi4yNzggQzEwNi45NzQsMjQyLjI3OCAxMzMuODcyLDIxNS4zNzkgMTMzLjg3MiwxODIuMjAzIEwxMzMuODcyLDE1MC4zNjIgTDE1OS4wMzIsMTUwLjM2MiBDMTY2Ljg3NywxNTAuMzYyIDE3My4yMTcsMTQ0LjE5NyAxNzMuMjEyLDEzNi4zNjYgQzE3My4yMTIsMTI4LjU4MyAxNjYuOTQyLDEyMi4zOTMgMTU5LjE4LDEyMi4zOTMgTDEzOC4zNDksMTIyLjM4OSBDMTM1Ljg3NiwxMjIuMzg5IDEzMy44NywxMjAuMzg4IDEzMy44NywxMTcuOTE5IEwxMzMuODcsOTAuMzY2IEMxMzMuOTAxLDcyLjg3NSAxNDguMDg5LDU4LjcwNyAxNjUuNTgsNTguNzA3IEMxNzEuNTA1LDU4LjcwNyAxNzIuOTcyLDU5LjQ4NCAxNzcuMDE3LDU5LjQ4NCBDMTg1LjUxNCw1OS40ODQgMTkxLjE5OSw1My43ODcgMTkxLjE5OSw0NS45NTYgQzE5MS4xOTcsMzkuNDc2IDE4NS42NDUsMzMuOTA2IDE3OC44NTEsMzIuMTI4IiBmaWxsPSIjRkZGRkZGIj4gPC9wYXRoPiA8L2c+IDwvZz48L3N2Zz4=
+  mediatype: image/svg+xml
+properties:
+  - type: flightctl.meta
+    value:
+      type: os
+      source: community
+      provider: Red Hat
+      support: Community only
+---
+schema: olm.channel
+package: fedora
+name: stable
+entries:
+  - name: fedora.v42
+    replaces: fedora.v41
+  - name: fedora.v41
+    replaces: fedora.v40
+  - name: fedora.v40
+---
+schema: olm.channel
+package: fedora
+name: rawhide
+entries:
+  - name: fedora.rawhide
+---
+schema: olm.bundle
+package: fedora
+name: fedora.v40
+image: quay.io/fedora/fedora-bootc:40
+properties:
+  - type: flightctl.meta
+    value:
+      type: os
+  - type: olm.package
+    value:
+      packageName: fedora
+      version: "40.0.0"
+---
+schema: olm.bundle
+package: fedora
+name: fedora.v41
+image: quay.io/fedora/fedora-bootc:41
+properties:
+  - type: flightctl.meta
+    value:
+      type: os
+  - type: olm.package
+    value:
+      packageName: fedora
+      version: "41.0.0"
+---
+schema: olm.bundle
+package: fedora
+name: fedora.v42
+image: quay.io/fedora/fedora-bootc:42
+properties:
+  - type: flightctl.meta
+    value:
+      type: os
+  - type: olm.package
+    value:
+      packageName: fedora
+      version: "42.0.0"
+---
+schema: olm.bundle
+package: fedora
+name: fedora.rawhide
+image: quay.io/fedora/fedora-bootc:rawhide
+properties:
+  - type: flightctl.meta
+    value:
+      type: os
+  - type: olm.package
+    value:
+      packageName: fedora
+      version: "43.0.0"
