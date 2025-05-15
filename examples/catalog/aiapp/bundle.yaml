@@ -25,7 +25,7 @@ entries:
 schema: olm.bundle
 package: ai-app
 name: ai-app.v1.27.4
-image: quay.io/rawagner/ai-app:fix1
+image: quay.io/rawagner/ai-app:1.27.4
 properties:
   - type: flightctl.meta
     value:
@@ -38,7 +38,7 @@ properties:
 schema: olm.bundle
 package: ai-app
 name: ai-app.v1.27.5
-image: quay.io/rawagner/ai-app:fix2
+image: quay.io/rawagner/ai-app:1.27.5
 properties:
   - type: flightctl.meta
     value:
