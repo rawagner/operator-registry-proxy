@@ -10,8 +10,6 @@ import (
 	"github.com/operator-framework/operator-registry/pkg/cache"
 )
 
-var catalogDir = flag.String("catalog-dir", "", "catalog directory")
-
 func main() {
 	flag.Parse()
 
@@ -26,7 +24,11 @@ func main() {
 		panic(err)
 	}
 
-	cache.LoadOrRebuild(context.Background(), reg, os.DirFS(*catalogDir))
+	val, ok := os.LookupEnv("CATALOG_DIR")
+	if !ok {
+		val = "./examples/catalog"
+	}
+	cache.LoadOrRebuild(context.Background(), reg, os.DirFS(val))
 
 	backend := reg.Backend()
 

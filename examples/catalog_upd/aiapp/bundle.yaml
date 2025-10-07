@@ -18,6 +18,8 @@ schema: olm.channel
 package: ai-app
 name: mainline
 entries:
+  - name: ai-app.v1.27.5
+    replaces: ai-app.v1.27.4
   - name: ai-app.v1.27.4
 ---
 schema: olm.bundle
@@ -28,19 +30,33 @@ properties:
   - type: flightctl.meta
     value:
       type: app
-  - type: olm.gvk
+  - type: olm.package
+    value:
+      packageName: ai-app
+      version: "1.27.4"
+---
+schema: olm.bundle
+package: ai-app
+name: ai-app.v1.27.5
+image: quay.io/rawagner/ai-app:fix2
+properties:
+  - type: flightctl.meta
     value:
       type: app
   - type: olm.package
     value:
       packageName: ai-app
-      version: "1.27.4"
-  - type: olm.package.required
+      version: "1.27.5"
+  - type: flightctl.model
     value:
-      packageName: "foo"
-      versionRange: "1.2.0"
-      bar: foo
-  - type: olm.constraint
-    value:
-      cel: 
-        rule: 'properties.exists(p, p.type == "flightctl.meta" && p.value == "model")'
+      volume: models
+      reference:
+        - type: olm.package
+          value:
+            packageName: gemma
+            version: ">=1.0.0"
+        - type: olm.package
+          value:
+            packageName: mistral
+            version: ">=1.0.0"
+

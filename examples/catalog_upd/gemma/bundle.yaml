@@ -18,7 +18,22 @@ schema: olm.channel
 package: gemma
 name: mainline
 entries:
+  - name: gemma.v1.0.1
+    replaces: gemma.v1.0.0
   - name: gemma.v1.0.0
+---
+schema: olm.bundle
+package: gemma
+name: gemma.v1.0.1
+image: quay.io/rawagner/models/gemma:latest
+properties:
+  - type: flightctl.meta
+    value:
+      type: model
+  - type: olm.package
+    value:
+      packageName: gemma
+      version: "1.0.1"
 ---
 schema: olm.bundle
 package: gemma
@@ -32,7 +47,3 @@ properties:
     value:
       packageName: gemma
       version: "1.0.0"
-  - type: flightctl.target.capabilities
-    value:
-      matchLabels:
-        vram: 8Gi

@@ -18,7 +18,22 @@ schema: olm.channel
 package: mistral
 name: mainline
 entries:
+  - name: mistral.v1.0.1
+    replaces: mistral.v1.0.0
   - name: mistral.v1.0.0
+---
+schema: olm.bundle
+package: mistral
+name: mistral.v1.0.1
+image: 192.168.0.94:5003/rawagner/model-img:latest
+properties:
+  - type: flightctl.meta
+    value:
+      type: model
+  - type: olm.package
+    value:
+      packageName: mistral
+      version: "1.0.1"
 ---
 schema: olm.bundle
 package: mistral
@@ -28,8 +43,6 @@ properties:
   - type: flightctl.meta
     value:
       type: model
-      format: gguf
-      architecture: mistral
   - type: olm.package
     value:
       packageName: mistral
